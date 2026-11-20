@@ -1,5 +1,6 @@
 # Segundo Parcial de Programación Orientada a Objetos
 Lina Maria Sanchez Barrera 20261007072
+
 Fabian Andres Veloza Pascasio 20261007088
 
 INTENCIÓN DEL PROYECTO:
