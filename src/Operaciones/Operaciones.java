@@ -98,5 +98,40 @@ public class Operaciones {
 
         return entrenadores;
     }
+    // Carga registros CUSTOMIZADOS en Pokemones.csv y Entrenadores.csv
+    public static void cargarDatosIniciales() {
+        // 1. DATOS OFICIALES (Ash Ketchum + Pokémon oficiales)
+        String[] medallasAsh = {"Medalla Roca", "Medalla Cascada", "Trofeo Liga Campeones"};
+        Entrenador ash = new Entrenador(1, "Ash Ketchum", LocalDate.of(1997, 4, 1), medallasAsh);
+
+        Pokemon pikachu = new Pokemon("P-01", 25, "Pikachu", TipoPokemon.ELECTRICO, 88);
+        Pokemon charizard = new Pokemon("P-02", 6, "Charizard", TipoPokemon.FUEGO, 84);
+
+        ash.agregarPokemon(pikachu);
+        ash.agregarPokemon(charizard);
+
+        guardarpokemones(pikachu);
+        guardarpokemones(charizard);
+        guardarEntrenador(ash);
+
+        // 2. DATOS CUSTOMIZADOS (Fabian y Lina67 con sus Pokémon inventados)
+        String[] medallasFabian = {"Medalla Bogota", "Copa POO"};
+        Entrenador fabian = new Entrenador(2, "Fabian", LocalDate.of(2004, 5, 15), medallasFabian);
+
+        Pokemon bogotamon = new Pokemon("P-99", 999, "Bogotamon", TipoPokemon.DRAGON, 95);
+        fabian.agregarPokemon(bogotamon);
+
+        guardarpokemones(bogotamon);
+        guardarEntrenador(fabian);
+
+        String[] medallasLina = {"Medalla Esmeralda", "Copa Galaxia"};
+        Entrenador lina = new Entrenador(3, "Lina67", LocalDate.of(2005, 8, 20), medallasLina);
+
+        Pokemon soachamon = new Pokemon("P-67", 670, "Soachamon", TipoPokemon.FUEGO, 90);
+        lina.agregarPokemon(soachamon);
+
+        guardarpokemones(soachamon);
+        guardarEntrenador(lina);
+    }
 }
 
