@@ -24,8 +24,8 @@ public class Entrenador {
         this.fechaNacimiento = nacimiento;
     }
 
-    public int getEdad() //calcular la edad del jugador a partir de la fecha de nacimiento y FABIAN NO ME VA A DECIR NI MIERDA POR MI MARAVILLOSA DECISIÓN SOLO LE METÍ UNA EDAD PRO Y AHÍ ESTÁ MÁS QUE BIEN PERROTA
-    {
+    // Calcular la edad del entrenador a partir de su fecha de nacimiento
+    public int getEdad() {
         return Period.between(
                 fechaNacimiento,
                 LocalDate.now()
