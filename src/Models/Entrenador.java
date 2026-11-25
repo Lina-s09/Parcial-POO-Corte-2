@@ -58,8 +58,7 @@ public class Entrenador {
     public String[] getMedallas() { return medallas; }
     public int getCantidadActual() { return cantidadActual; }
 
-    // Convierte los datos del entrenador sus Pokémon y medallas a texto CSV donde se almacenan
-    // Convierte los datos del entrenador separados por coma (y medallas por ';') para que leerEntrenadores() los entienda
+    // Convierte los datos del entrenador separados por coma para que leerEntrenadores los entienda y sean exactamnete los mismos
     public String EntrenadoresToCSV() {
         String medallasTexto = String.join(";", medallas); // Une el arreglo con ';'
         return id + "," + nombre + "," + fechaNacimiento + "," + medallasTexto;
