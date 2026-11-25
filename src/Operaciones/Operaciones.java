@@ -98,7 +98,8 @@ public class Operaciones {
 
         return entrenadores;
     }
-    // Carga registros CUSTOMIZADOS en Pokemones.csv y Entrenadores.csv
+
+    // Carga registros OFICIALES y CUSTOMIZADOS en Pokemones.csv y Entrenadores.csv
     public static void cargarDatosIniciales() {
         // 1. DATOS OFICIALES (Ash Ketchum + Pokémon oficiales)
         String[] medallasAsh = {"Medalla Roca", "Medalla Cascada", "Trofeo Liga Campeones"};
@@ -134,4 +135,3 @@ public class Operaciones {
         guardarEntrenador(lina);
     }
 }
-
