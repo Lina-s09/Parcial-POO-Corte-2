@@ -10,13 +10,13 @@ public class Pokemon {
         private String entrenador;
 
         // Constructor: crea el Pokémon y valida el nivel
-        public Pokemon(String id, int numero, String nombre, TipoPokemon tipo, int nivel, String entrenador) {
+        public Pokemon(String id, int numero, String nombre, TipoPokemon tipo, int nivel) {
             this.id = id;
             this.numero = numero;
             this.nombre = nombre;
             this.tipo = tipo;
             setNivel(nivel); // condicion nivel
-            this.entrenador = entrenador;
+            //this.entrenador = entrenador;
         }
 
         // condicion nivel: el nivel oficial debe estar entre 1 y 100
@@ -38,7 +38,8 @@ public class Pokemon {
         public void setEntrenador(String entrenador) { this.entrenador = entrenador; }
 
         // Separacion por comas para el csv
-        public String toCSV() {
+        public String pokemontoCSV()
+        {
             return "id: " + id + ", num: " + numero + ", nombre: " + nombre +
                     ", tipo: " + tipo + ", nivel: " + nivel + ", entrenador: " + entrenador;
         }
