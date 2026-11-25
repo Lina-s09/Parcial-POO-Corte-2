@@ -10,7 +10,7 @@ public class Entrenador {
     private String nombre;
     private LocalDate fechaNacimiento;
 
-    //Indicar la cantidad de pokemones que le pertenece a cada entrendador
+    //Indicar la cantidad de pokemones que le pertenece a cada entrenador
     private Pokemon [] pokemones = new Pokemon[6];
 
     //Indicar los trofeos o medallas que ha ganado también en un arreglo
