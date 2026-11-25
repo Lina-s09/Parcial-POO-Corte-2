@@ -38,7 +38,7 @@ public class Pokemon {
         public void setEntrenador(String entrenador) { this.entrenador = entrenador; }
 
         // Separacion por comas para el csv
-        public String pokemontoCSV()
+        public String pokemonToCSV()
         {
             return "id: " + id + ", num: " + numero + ", nombre: " + nombre +
                     ", tipo: " + tipo + ", nivel: " + nivel + ", entrenador: " + entrenador;

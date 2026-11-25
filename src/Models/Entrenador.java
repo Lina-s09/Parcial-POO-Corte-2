@@ -3,6 +3,8 @@ package Models;
 //Librerías
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Entrenador {
     //Atributos que contiene entrenador
@@ -55,4 +57,22 @@ public class Entrenador {
     public Pokemon[] getPokemones() { return pokemones; }
     public String[] getMedallas() { return medallas; }
     public int getCantidadActual() { return cantidadActual; }
+
+    // Convierte los datos del entrenador sus Pokémon y medallas a texto CSV donde se almacenan
+    public String EntrenadoresToCSV() {
+        // Creamos un arreglo temporal solo con los nombres de los Pokemon que si tiene
+        String[] nombresPk = new String[cantidadActual];
+        for (int i = 0; i < cantidadActual; i++) {
+            nombresPk[i] = pokemones[i].getNombre();
+        }
+        return "id: " + id + ", entrenador: " + nombre +
+                ", pokemones: " + Arrays.toString(nombresPk) +
+                ", medallas: " + Arrays.toString(medallas);
+    }
+    // Remplaza para mostrar la salida o impresion de una forma mas ordenada y clara
+    @Override
+    public String toString() {
+        return nombre + " (ID: " + id + " | Pokémon: " + cantidadActual + "/6)";
+    }
 }
+
