@@ -40,8 +40,14 @@ public class Pokemon {
         // Separacion por comas para el csv
         public String pokemonToCSV()
         {
-            return "id: " + id + ", num: " + numero + ", nombre: " + nombre +
-                    ", tipo: " + tipo + ", nivel: " + nivel + ", entrenador: " + entrenador;
+            String nombreEntrenador = "";
+
+            if (entrenador != null) {
+                nombreEntrenador = entrenador;
+            }
+
+            return id + "," + numero + "," + nombre + "," +
+                    tipo.name() + "," + nivel + "," + nombreEntrenador; //el name() es para pasar de enum a texto
         }
 
         @Override //orden bonito
