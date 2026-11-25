@@ -31,11 +31,13 @@ public class ConsolaPokemon {
     // Botones generales y consola de salida
     private JButton cargarPokemonesAEntrenadoresButton;
     private JButton actualizarLosDatosButton;
+    private JButton limpiarCSVButton;
     private JTextArea areaResultados;
 
     public ConsolaPokemon() {
         cmbPokeTipo.setModel(new DefaultComboBoxModel<>(TipoPokemon.values()));
 
+        // 1. Guardar Entrenador
         guardarEntrenadorButton.addActionListener(e -> {
             try {
                 int id = Integer.parseInt(formattedTextField1.getText().trim());
@@ -68,6 +70,7 @@ public class ConsolaPokemon {
             }
         });
 
+        // 2. Guardar Pokémon
         guardarPokemonButton.addActionListener(e -> {
             try {
                 String id = txtPokeId.getText().trim();
@@ -100,12 +103,28 @@ public class ConsolaPokemon {
             }
         });
 
+        // 3. Cargar Datos Oficiales + Custom
         cargarPokemonesAEntrenadoresButton.addActionListener(e -> {
             Operaciones.cargarDatosIniciales();
             areaResultados.setText("Datos oficiales (Ash) y customizados (Fabian y Lina67 con Soachamon) guardados en CSV.");
         });
 
+        // 4. Actualizar y mostrar toda la información desde los CSV
         actualizarLosDatosButton.addActionListener(e -> mostrarTodo());
+
+        // 5. Limpiar archivos CSV
+        limpiarCSVButton.addActionListener(e -> {
+            int confirmar = JOptionPane.showConfirmDialog(
+                    panel,
+                    "¿Seguro que deseas borrar todos los registros de Pokemones.csv y Entrenadores.csv?",
+                    "Confirmar limpieza",
+                    JOptionPane.YES_NO_OPTION
+            );
+            if (confirmar == JOptionPane.YES_OPTION) {
+                Operaciones.limpiarCSV();
+                areaResultados.setText("Archivos Pokemones.csv y Entrenadores.csv limpiados correctamente.");
+            }
+        });
     }
 
     private void mostrarTodo() {

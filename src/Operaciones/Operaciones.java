@@ -134,4 +134,14 @@ public class Operaciones {
         guardarpokemones(soachamon);
         guardarEntrenador(lina);
     }
+    // Vacía el contenido de Pokemones.csv y Entrenadores.csv
+    public static void limpiarCSV() {
+        try (FileWriter fwPoke = new FileWriter("Pokemones.csv", false);
+             FileWriter fwEnt = new FileWriter("Entrenadores.csv", false)) {
+            fwPoke.write("");
+            fwEnt.write("");
+        } catch (IOException e) {
+            System.out.println("Error al limpiar los archivos CSV: " + e.getMessage());
+        }
+    }
 }
