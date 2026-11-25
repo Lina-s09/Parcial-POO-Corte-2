@@ -59,16 +59,16 @@ public class Entrenador {
     public int getCantidadActual() { return cantidadActual; }
 
     // Convierte los datos del entrenador sus Pokémon y medallas a texto CSV donde se almacenan
-    public String EntrenadoresToCSV() {
-        // Creamos un arreglo temporal solo con los nombres de los Pokemon que si tiene
-        String[] nombresPk = new String[cantidadActual];
-        for (int i = 0; i < cantidadActual; i++) {
-            nombresPk[i] = pokemones[i].getNombre();
+        public String EntrenadoresToCSV() {
+            // Creamos un arreglo temporal solo con los nombres de los Pokemon que si tiene
+            String[] nombresPk = new String[cantidadActual];
+            for (int i = 0; i < cantidadActual; i++) {
+                nombresPk[i] = pokemones[i].getNombre();
+            }
+            return "id: " + id + ", entrenador: " + nombre +
+                    ", pokemones: " + Arrays.toString(nombresPk) +
+                    ", medallas: " + Arrays.toString(medallas);
         }
-        return "id: " + id + ", entrenador: " + nombre +
-                ", pokemones: " + Arrays.toString(nombresPk) +
-                ", medallas: " + Arrays.toString(medallas);
-    }
     // Remplaza para mostrar la salida o impresion de una forma mas ordenada y clara
     @Override
     public String toString() {
