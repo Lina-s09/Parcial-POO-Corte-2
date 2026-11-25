@@ -2,12 +2,12 @@ package Operaciones;
 import Models.Entrenador;
 import Models.Pokemon;
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import Models.TipoPokemon;
+import java.time.LocalDate;
 
 public class Operaciones {
 
@@ -36,7 +36,7 @@ public class Operaciones {
     }
 
     //Para leer los pokemones CSV
-    public static ArrayList<Pokemon> readPokemones() {
+    public static ArrayList<Pokemon> leerPokemones() {
         ArrayList<Pokemon> pokemones = new ArrayList<>();
 
         try {
@@ -72,6 +72,43 @@ public class Operaciones {
         }
 
         return pokemones;
+    }
+
+    public static ArrayList<Entrenador> leerEntrenadores() {
+
+        ArrayList<Entrenador> entrenadores = new ArrayList<>();
+
+        try {
+            FileReader leer = new FileReader("Entrenadores.csv");
+            BufferedReader buffer = new BufferedReader(leer);
+
+            String entrenadorReader;
+
+            while ((entrenadorReader = buffer.readLine()) != null) {
+
+                String[] data_readed = entrenadorReader.split(",");
+
+                int id = Integer.parseInt(data_readed[0].trim());
+                String nombre = data_readed[1].trim();
+                LocalDate fechaNacimiento = LocalDate.parse(data_readed[2].trim());
+                String[] medallas = data_readed[3].split(";");
+
+                Entrenador entrenador = new Entrenador(
+                        id, nombre, fechaNacimiento, medallas
+                );
+
+                entrenadores.add(entrenador);
+            }
+
+            buffer.close();
+
+            System.out.println("Todos los entrenadores fueron leídos correctamente");
+
+        } catch (IOException e) {
+            System.out.println("Algo salió mal: " + e.getMessage());
+        }
+
+        return entrenadores;
     }
 
 }
