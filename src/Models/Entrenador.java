@@ -38,4 +38,21 @@ public class Entrenador {
         this.fechaNacimiento = fechaNacimiento;
         this.medallas = medallas;
     }
+
+    public boolean agregarPokemon(Pokemon pk) {
+        if (cantidadActual < 6) {
+            pokemones[cantidadActual] = pk; // Guarda el Pokemon en la posición libre
+            pk.setEntrenador(this.nombre);  // Asigna este entrenador al Pokémon
+            cantidadActual++;              // Aumenta el contador de ocupados
+            return true;
+        }
+        return false; // Retorna false si el entrenador ya tiene 6 Pokémon
+    }
+
+    // Establcer los getters para los atributos privados
+    public int getId() { return id; }
+    public String getNombre() { return nombre; }
+    public Pokemon[] getPokemones() { return pokemones; }
+    public String[] getMedallas() { return medallas; }
+    public int getCantidadActual() { return cantidadActual; }
 }
